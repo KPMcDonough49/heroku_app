@@ -16,7 +16,7 @@ st.title('Infection Detection')
 st.markdown("Welcome to this simple web application that uses an image classifier to identify infection in wounds")
 
 def main():
-    file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
+    file_uploaded = st.file_uploader("Choose File", type=["jpg","jpeg"])
     class_btn = st.button("Classify")
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
@@ -35,7 +35,7 @@ def main():
                 st.write(predictions)
 
 def predict(image):
-    classifier_model = '/Users/kevinmcdonough/Documents/Flatiron/capstone/project/Capstone/my_model.h5'
+    classifier_model = 'my_model.h5'
     model = load_model(classifier_model)
     test_image = image.resize((300,300))
     img_array = np.array(test_image).astype('float32')/255
